@@ -40,11 +40,11 @@ class Sidekiq::Merger::Merge
 
   attr_reader :worker_class, :queue, :merge_key
 
-  def initialize(worker_class, queue, merge_key, redis: Sidekiq::Merger::Redis.new)
+  def initialize(worker_class, queue, merge_key, options = {})
     @worker_class = worker_class
     @queue = queue
     @merge_key = merge_key
-    @redis = redis
+    @redis = options[:redis] || Sidekiq::Merger::Redis.new
   end
 
   def add(args, execution_time)

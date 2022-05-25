@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "coveralls", "~> 0.8"
   spec.add_development_dependency "appraisal"
 
-  spec.add_runtime_dependency "sidekiq", ">= 4.0", "< 6"
+  spec.add_runtime_dependency "sidekiq", ">= 4.0", "< 7"
   spec.add_runtime_dependency "concurrent-ruby", "~> 1.0"
-  spec.add_runtime_dependency "activesupport", ">= 3.2", "< 6"
+  spec.add_runtime_dependency "activesupport", ">= 3.2", "< 7"
 end
