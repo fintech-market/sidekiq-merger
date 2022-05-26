@@ -38,7 +38,7 @@ describe Sidekiq::Merger::Merge, worker_class: true do
 
   describe ".initialize_with_args" do
     it "provides merge_key from args" do
-      expect(described_class).to receive(:new).with(worker_class, queue, "[1,2,3]", anything)
+      expect(described_class).to receive(:new).with(worker_class, queue, "[1,2,3]")
       described_class.initialize_with_args(worker_class, queue, [1, 2, 3])
     end
     it "passes options" do

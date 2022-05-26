@@ -5,6 +5,7 @@ rvm:
   - 2.6.7
   - 2.7.3
   - 3.0.4
+  - 3.1.2
 gemfile:
   - gemfiles/sidekiq_4_0.gemfile
   - gemfiles/sidekiq_4_1.gemfile

@@ -15,11 +15,11 @@ class Sidekiq::Merger::Merge
       worker_class = keys[0].camelize.constantize
       queue = keys[1]
       merge_key = keys[2]
-      new(worker_class, queue, merge_key, options)
+      new(worker_class, queue, merge_key, **options)
     end
 
     def initialize_with_args(worker_class, queue, args, options = {})
-      new(worker_class, queue, merge_key(worker_class, args), options)
+      new(worker_class, queue, merge_key(worker_class, args), **options)
     end
 
     def merge_key(worker_class, args)
@@ -40,11 +40,11 @@ class Sidekiq::Merger::Merge
 
   attr_reader :worker_class, :queue, :merge_key
 
-  def initialize(worker_class, queue, merge_key, options = {})
+  def initialize(worker_class, queue, merge_key, redis: Sidekiq::Merger::Redis.new)
     @worker_class = worker_class
     @queue = queue
     @merge_key = merge_key
-    @redis = options[:redis] || Sidekiq::Merger::Redis.new
+    @redis = redis
   end
 
   def add(args, execution_time)
